@@ -5,33 +5,117 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
 </head>
 <body class="bg-lol-black-blue min-h-screen font-body">
-    <nav class="bg-lol-black border-b border-lol-gold-dark">
+    <nav class="bg-lol-black border-b border-lol-gold-dark sticky top-0 z-50">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
             <h1 class="text-2xl text-lol-gold font-heading font-bold">Piltover Progress Portal</h1>
-            <a href="{{ url_for('main.index') }}" 
-               class="bg-lol-gold-dark text-white px-4 py-2 rounded hover:bg-lol-gold transition">
-                Login Portal
-            </a>
+            <div class="space-x-4">
+                <a href="#hextech" class="text-lol-gold hover:text-lol-gold-dark transition">Hextech</a>
+                <a href="#piltover" class="text-lol-gold hover:text-lol-gold-dark transition">Piltover</a>
+                <a href="#council" class="text-lol-gold hover:text-lol-gold-dark transition">Council</a>
+                <a href="#security" class="text-lol-gold hover:text-lol-gold-dark transition">Security</a>
+                <a href="{{ url_for('main.index') }}" 
+                   class="bg-lol-gold-dark text-white px-4 py-2 rounded hover:bg-lol-gold transition">
+                    Login Portal
+                </a>
+            </div>
         </div>
     </nav>
 
     <main class="container mx-auto px-4 py-12">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-4xl text-lol-gold font-heading font-bold mb-6">Welcome to the City of Progress</h2>
-            <p class="text-lol-grey text-lg mb-8">
-                Experience the fusion of magic and technology in Piltover, where innovation shapes our future.
-            </p>
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl text-lol-gold font-heading font-bold mb-6">Welcome to the City of Progress</h2>
+                <p class="text-lol-grey text-lg">
+                    Experience the fusion of magic and technology in Piltover, where innovation shapes our future.
+                </p>
+            </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-                <div class="bg-lol-black p-6 rounded-lg border border-lol-gold-dark">
-                    <h3 class="text-xl text-lol-gold font-heading font-bold mb-4">Citizens Portal</h3>
-                    <p class="text-lol-grey mb-4">Access public announcements and city updates.</p>
+            <div id="hextech" class="scroll-mt-16 bg-lol-black p-8 rounded-lg border border-lol-gold-dark mb-12">
+                <div class="flex items-center justify-between">
+                    <div class="w-2/3 pr-8">
+                        <h3 class="text-2xl text-lol-gold font-heading font-bold mb-4">What is Hextech?</h3>
+                        <p class="text-lol-grey mb-4">
+                            Hextech represents the pinnacle of Piltovan innovation - a fusion of magic and technology. 
+                            These powerful artifacts harness the raw mystical power of crystals, transforming it into 
+                            controllable energy that powers everything from simple tools to revolutionary weapons.
+                        </p>
+                        <p class="text-lol-grey">
+                            Our secure communications system utilizes advanced Hextech encryption protocols to ensure 
+                            the safety of council deliberations.
+                        </p>
+                    </div>
+                    <div class="w-1/3">
+                        <img src="{{ url_for('static', filename='images/hextech-crystal.jpg') }}" 
+                             alt="Hextech Crystal" 
+                             class="rounded-lg border-2 border-lol-gold-dark">
+                    </div>
                 </div>
-                
-                <div class="bg-lol-black p-6 rounded-lg border border-lol-gold-dark">
-                    <h3 class="text-xl text-lol-gold font-heading font-bold mb-4">Council Members</h3>
-                    <p class="text-lol-grey mb-4">Secure access to council communications.</p>
+            </div>
+            
+            <div id="piltover" class="scroll-mt-16 bg-lol-black p-8 rounded-lg border border-lol-gold-dark mb-12">
+                <div class="flex items-center justify-between flex-row-reverse">
+                    <div class="w-2/3 pl-8">
+                        <h3 class="text-2xl text-lol-gold font-heading font-bold mb-4">The City of Progress</h3>
+                        <p class="text-lol-grey mb-4">
+                            Piltover stands as a testament to innovation and advancement. Our city-state leads Runeterra 
+                            in technological progress, cultural advancement, and scientific discovery. The fusion of magic 
+                            and technology has created a society where anything is possible.
+                        </p>
+                        <p class="text-lol-grey">
+                            The city's architecture reflects our values: soaring towers of glass and steel, powered by 
+                            Hextech, reaching ever higher into the sky.
+                        </p>
+                    </div>
+                    <div class="w-1/3">
+                        <img src="{{ url_for('static', filename='images/piltover-city.png') }}" 
+                             alt="Piltover Cityscape" 
+                             class="rounded-lg border-2 border-lol-gold-dark">
+                    </div>
                 </div>
+            </div>
+
+            <div id="council" class="scroll-mt-16 bg-lol-black p-8 rounded-lg border border-lol-gold-dark mb-12">
+                <h3 class="text-2xl text-lol-gold font-heading font-bold mb-6 text-center">The Council of Piltover</h3>
+                <p class="text-lol-grey mb-8 text-center">
+                    Our esteemed council members guide Piltover's progress through wisdom and innovation.
+                </p>
+                <div class="grid grid-cols-3 gap-8">
+                    <div class="text-center">
+                        <div class="relative mb-4">
+                            <div class="absolute inset-0 bg-gradient-to-t from-lol-black to-transparent rounded-lg"></div>
+                            <img src="{{ url_for('static', filename='images/jayce.webp') }}" 
+                                 alt="Council Member" 
+                                 class="w-full h-48 object-cover rounded-lg">
+                        </div>
+                        <h4 class="text-lol-gold font-heading">Innovation</h4>
+                    </div>
+                    <div class="text-center">
+                        <div class="relative mb-4">
+                            <div class="absolute inset-0 bg-gradient-to-t from-lol-black to-transparent rounded-lg"></div>
+                            <img src="{{ url_for('static', filename='images/mel.png') }}" 
+                                 alt="Council Member" 
+                                 class="w-full h-48 object-cover rounded-lg">
+                        </div>
+                        <h4 class="text-lol-gold font-heading">Progress</h4>
+                    </div>
+                    <div class="text-center">
+                        <div class="relative mb-4">
+                            <div class="absolute inset-0 bg-gradient-to-t from-lol-black to-transparent rounded-lg"></div>
+                            <img src="{{ url_for('static', filename='images/caitlyn.png') }}" 
+                                 alt="Council Member" 
+                                 class="w-full h-48 object-cover rounded-lg">
+                        </div>
+                        <h4 class="text-lol-gold font-heading">Security</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div id="security" class="scroll-mt-16 bg-lol-black p-8 rounded-lg border border-lol-gold-dark">
+                <h3 class="text-2xl text-lol-gold font-heading font-bold mb-4 text-center">Secure Communications</h3>
+                <p class="text-lol-grey text-center">
+                    Our advanced Hextech encryption ensures the confidentiality of all council communications. 
+                    Only authorized personnel may access sensitive information through secure channels.
+                </p>
             </div>
         </div>
     </main>
