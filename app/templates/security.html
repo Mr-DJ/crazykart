@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body class="bg-lol-black-blue min-h-screen font-body">
+    <div class="container mx-auto px-4 py-8">
+        <div class="max-w-2xl mx-auto p-6 bg-lol-black rounded-lg border border-lol-gold-dark">
+            <h1 class="text-2xl text-lol-gold font-heading font-bold mb-4">{{ title }}</h1>
+            <div class="text-lol-grey">
+                {{ content }}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login - Piltover Progress Portal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body class="bg-lol-black-blue min-h-screen font-body">
+    <div class="max-w-md mx-auto mt-20 p-6 bg-lol-black rounded-lg border border-lol-gold-dark">
+        <h1 class="text-2xl text-lol-gold font-heading font-bold mb-6">Piltover Progress Portal</h1>
+        <form method="POST" action="{{ url_for('main.login') }}" class="space-y-4">
+            <div>
+                <input type="text" name="username" placeholder="Username" 
+                    class="w-full p-2 bg-lol-black-blue text-lol-gold border border-lol-gold-dark rounded focus:outline-none focus:border-lol-gold">
+            </div>
+            <div>
+                <input type="password" name="password" placeholder="Password"
+                    class="w-full p-2 bg-lol-black-blue text-lol-gold border border-lol-gold-dark rounded focus:outline-none focus:border-lol-gold">
+            </div>
+            <button type="submit" 
+                class="w-full bg-lol-gold-dark text-white py-2 px-4 rounded hover:bg-lol-gold transition">
+                Login
+            </button>
+            {% if error %}
+            <p class="text-lol-red text-sm">{{ error }}</p>
+            {% endif %}
+        </form>
+    </div>
+</body>
+</html>

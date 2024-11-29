@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ 'Council' if request.endpoint == 'main.council_dashboard' else 'Citizen' }} Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body class="bg-lol-black-blue min-h-screen font-body">
+    <nav class="bg-lol-black p-4 border-b border-lol-gold-dark mb-8">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-xl text-lol-gold font-heading font-bold">Piltover Progress Portal</h1>
+            <a href="{{ url_for('main.logout') }}" 
+                class="bg-lol-gold-dark text-white px-4 py-2 rounded hover:bg-lol-gold transition">
+                Logout
+            </a>
+        </div>
+    </nav>
+
+    <div class="container mx-auto px-4">
+        {% for announcement in announcements %}
+        <div class="mb-6 p-6 bg-lol-black rounded-lg border {% if announcement.level == 'council' %}border-lol-red{% else %}border-lol-gold-dark{% endif %}">
+            <h3 class="text-xl text-lol-gold font-heading font-bold mb-3">{{ announcement.title }}</h3>
+            <div class="text-lol-grey whitespace-pre-wrap">{{ announcement.content }}</div>
+            {% if 'LFSR' in announcement.title %}
+            <div class="mt-4 p-4 bg-lol-black-blue border-l-4 border-lol-red font-mono">
+                Connection Details:
+                nc localhost 18739
+            </div>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

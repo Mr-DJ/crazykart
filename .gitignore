@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+env/
+venv/
+.env
+*.db
+*.sqlite3
+
+# Node
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Flask
+instance/
+.webassets-cache
+flask_session/
+
+# Tailwind CSS
+app/static/css/main.css
+
+# System
+.DS_Store
+Thumbs.db

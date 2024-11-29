@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Piltover Progress Portal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body class="bg-lol-black-blue min-h-screen font-body">
+    <nav class="bg-lol-black border-b border-lol-gold-dark">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <h1 class="text-2xl text-lol-gold font-heading font-bold">Piltover Progress Portal</h1>
+            <a href="{{ url_for('main.index') }}" 
+               class="bg-lol-gold-dark text-white px-4 py-2 rounded hover:bg-lol-gold transition">
+                Login Portal
+            </a>
+        </div>
+    </nav>
+
+    <main class="container mx-auto px-4 py-12">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl text-lol-gold font-heading font-bold mb-6">Welcome to the City of Progress</h2>
+            <p class="text-lol-grey text-lg mb-8">
+                Experience the fusion of magic and technology in Piltover, where innovation shapes our future.
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+                <div class="bg-lol-black p-6 rounded-lg border border-lol-gold-dark">
+                    <h3 class="text-xl text-lol-gold font-heading font-bold mb-4">Citizens Portal</h3>
+                    <p class="text-lol-grey mb-4">Access public announcements and city updates.</p>
+                </div>
+                
+                <div class="bg-lol-black p-6 rounded-lg border border-lol-gold-dark">
+                    <h3 class="text-xl text-lol-gold font-heading font-bold mb-4">Council Members</h3>
+                    <p class="text-lol-grey mb-4">Secure access to council communications.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
