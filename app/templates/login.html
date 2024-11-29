@@ -5,8 +5,26 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
 </head>
 <body class="bg-lol-black-blue min-h-screen font-body">
-    <div class="max-w-md mx-auto mt-20 p-6 bg-lol-black rounded-lg border border-lol-gold-dark">
+    <nav class="bg-lol-black border-b border-lol-gold-dark p-4">
+        <div class="container mx-auto">
+            <a href="/" class="text-lol-gold font-heading hover:text-lol-gold-dark transition">← Back to Home</a>
+        </div>
+    </nav>
+
+    <div class="max-w-md mx-auto mt-12 p-6 bg-lol-black rounded-lg border border-lol-gold-dark">
         <h1 class="text-2xl text-lol-gold font-heading font-bold mb-6">Piltover Progress Portal</h1>
+        
+        <div class="mb-8 text-lol-grey">
+            <p class="mb-4">Welcome to the secure communications portal of Piltover. This system enables:</p>
+            <ul class="list-disc list-inside space-y-2 ml-4">
+                <li>Citizens to access public announcements</li>
+                <li>Council members to view confidential communications</li>
+                <li>Secure Hextech-encrypted messaging system</li>
+            </ul>
+        </div>
+
+        <div class="border-t border-lol-gold-dark my-6"></div>
+
         <form method="POST" action="{{ url_for('main.login') }}" class="space-y-4">
             <div>
                 <input type="text" name="username" placeholder="Username" 
@@ -21,9 +39,14 @@
                 Login
             </button>
             {% if error %}
-            <p class="text-lol-red text-sm">{{ error }}</p>
+            <p class="text-lol-red text-sm mt-2">{{ error }}</p>
             {% endif %}
         </form>
+
+        <div class="mt-6 text-sm text-lol-grey text-center">
+            <p>Access level determined by credentials.</p>
+            <p>Protected by Hextech encryption protocols.</p>
+        </div>
     </div>
 </body>
 </html>

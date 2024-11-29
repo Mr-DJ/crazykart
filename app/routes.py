@@ -19,7 +19,8 @@ class Announcement(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(200), nullable=False)
     content = db.Column(db.Text, nullable=False)
-    level = db.Column(db.String(20), nullable=False)  # public or council
+    level = db.Column(db.String(20), nullable=False)
+    show_connection = db.Column(db.Boolean, default=False)
 
 def council_required(f):
     @wraps(f)
@@ -39,46 +40,54 @@ def init_db():
         announcements = [
             Announcement(
                 title='Welcome to Progress Day!',
-                content='Join us in celebrating innovation and progress in our great city of Piltover!',
+                content='Join us in celebrating innovation and progress in our great city of Piltover! This year\'s theme focuses on the evolution of our communication systems.',
                 level='public'
             ),
             Announcement(
-                title='Hextech Crystal Exhibition',
-                content='Visit the new Hextech Crystal exhibition at the Science Museum. Open to all citizens!',
+                title='Legacy Systems Exhibition',
+                content='Discover the history of Piltover\'s encryption methods at the Science Museum.\n\n' +
+                        'Featured: The Linear Feedback Shift Register (LFSR) - A foundational technology that shaped our modern HextechCipher systems.',
                 level='public'
             ),
             Announcement(
-                title='URGENT: LFSR Communication System',
+                title='WANTED: Jinx - Public Safety Alert',
+                content='CAUTION: The criminal known as Jinx remains at large.\n\n' +
+                        'Distinguishing Features:\n' +
+                        '- Blue hair in long braids\n' +
+                        '- Known for hextech-based explosives\n' +
+                        '- Extremely dangerous\n\n' +
+                        'Report any sightings immediately to Enforcer headquarters.\n\n' +
+                        '<img src="/static/images/jinx.png" class="w-1/2 h-64 object-cover rounded-lg mb-4">\n\n' +
+                        'DO NOT attempt to approach or apprehend.',
+                level='public'
+            ),
+            Announcement(
+                title='URGENT: HextechCipher Implementation',
                 content='Technical specifications for new encryption system:\n\n' +
-                        'LFSR Configuration:\n' +
+                        'Configuration:\n' +
                         '- Initial State: [1, 0, 1, 0]\n' +
-                        '- Feedback Function: state[0] ⊕ state[1] ⊕ state[2]\n' +
-                        '- Port: 18739\n\n' +
+                        '- Feedback Function: state[0] ⊕ state[1] ⊕ state[2]\n'
                         'Test Messages:\n' +
-                        '1. HEXTECH{test_message_1}\n' +
-                        '2. Connect using: nc localhost 18739\n\n' +
-                        'Note: Engineering suggests monitoring bit patterns in output stream.',
+                        '1. HEXTECH{test_message_1}\n',
                 level='council'
             ),
             Announcement(
-                title='Security Notice: Message Format',
+                title='Security Protocol Update',
                 content='All encrypted communications follow standard format:\n\n' +
                         '- Messages begin with "HEXTECH{"\n' +
-                        '- Current messages in rotation:\n' +
-                        '  * Test message\n' +
-                        '  * Security protocol update\n' +
-                        '  * Flag location status\n\n' +
-                        'Warning: Initial analysis shows potential patterns in encrypted output.',
+                        '- Messages are encrypted using state-based transformation\n' +
+                        '- Regular message rotation implemented\n\n' +
+                        'Note: System shows predictable behavior after initial state.',
                 level='council'
             ),
             Announcement(
-                title='Engineering Report: LFSR Analysis',
-                content='Preliminary findings on LFSR implementation:\n\n' +
-                        '1. Feedback mechanism uses only first 3 bits\n' +
-                        '2. State transitions show regular patterns\n' +
-                        '3. Output sequence length shorter than expected\n\n' +
-                        'Recommendation: Full security audit needed.',
-                level='council'
+                title='Initial Testing Progress',
+                content='Jayce has begun testing the capabilities of the newly established protocol.\n\n' +
+                        'Configuration information is highly confidential and must be protected at all costs."\n' +
+                        'We are still securing the protocol behavior, configuration details are highly classified and\n' +
+                        'must be protected at all costs.\n\n',
+                level='council',
+                show_connection=True
             )
         ]
         

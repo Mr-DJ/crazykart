@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>{{ 'Council' if request.endpoint == 'main.council_dashboard' else 'Citizen' }} Dashboard</title>
+    <title>Announcements</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
 </head>
 <body class="bg-lol-black-blue min-h-screen font-body">
@@ -19,11 +19,13 @@
         {% for announcement in announcements %}
         <div class="mb-6 p-6 bg-lol-black rounded-lg border {% if announcement.level == 'council' %}border-lol-red{% else %}border-lol-gold-dark{% endif %}">
             <h3 class="text-xl text-lol-gold font-heading font-bold mb-3">{{ announcement.title }}</h3>
-            <div class="text-lol-grey whitespace-pre-wrap">{{ announcement.content }}</div>
-            {% if 'LFSR' in announcement.title %}
-            <div class="mt-4 p-4 bg-lol-black-blue border-l-4 border-lol-red font-mono">
-                Connection Details:
-                nc localhost 18739
+            <div class="text-lol-grey whitespace-pre-wrap">{{ announcement.content | safe }}</div>
+            {% if announcement.show_connection %}
+            <div class="mt-4 flex items-center p-4 bg-lol-black border border-lol-gold-dark rounded-lg" role="alert">
+                <div class="flex items-center">
+                    <span class="font-heading text-lol-gold font-bold mr-2">Connection Details:</span>
+                    <code class="font-mono text-lol-blue">nc localhost {{ config.PORT }}</code>
+                </div>
             </div>
             {% endif %}
         </div>
