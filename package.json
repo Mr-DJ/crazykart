@@ -4,9 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build-css": "npx -- tailwindcss -i ./app/static/src/input.css -o ./app/static/css/main.css --watch",
-    "flask-dev": "python -m flask run",
-    "start": "concurrently \"npm run build-css\" \"npm run flask-dev\""
+    "build": "npx tailwindcss -i ./app/static/src/input.css -o ./app/static/css/main.css"
   },
   "repository": {
     "type": "git",

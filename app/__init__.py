@@ -52,7 +52,7 @@ class HextechCipherCommunication:
     def run_server(self, port):
         server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         try:
-            server.bind(('localhost', port))
+            server.bind(('0.0.0.0', port))
             server.listen(5)
             while True:
                 client, addr = server.accept()
