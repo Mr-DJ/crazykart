@@ -14,7 +14,7 @@ Piltover has implemented a new system for council communications. Can you find v
 
 ## Details
 
-Browse {{port("web")}}, and find the flag! {{port("crypto")}}
+Browse {{server("web")}}:{{port("web")}}, and find the flag! {{port("crypto")}}
 
 ## Hints
 
