@@ -38,4 +38,9 @@ RUN python3 /challenge/setup-challenge.py
 
 EXPOSE 5000 18739
 
+# The comment below is parsed by cmgr. You can reference the port by the name
+# given, but if there is only one port published, you don't have to use the name
+# PUBLISH 5000 AS web
+# PUBLISH 18739 AS crypto
+
 CMD ["python3", "/challenge/run.py"]

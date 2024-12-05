@@ -1,10 +1,13 @@
 import os
 import json
+import random
+import string
 
 def main():
     # Read the flag from the environment variable
     flag = os.getenv('FLAG', 'HEXTECH{default_flag_value}')
-
+    flag = "picoCTF{d0n1_l34k_st4t35_" + ''.join(random.choices(string.ascii_letters, k=7)) + "}"
+	
     # Create metadata dictionary
     metadata = {
         'flag': flag

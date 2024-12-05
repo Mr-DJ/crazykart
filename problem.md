@@ -14,7 +14,7 @@ Piltover has implemented a new system for council communications. Can you find v
 
 ## Details
 
-Connect to the program on the specified host and port. 
+Browse {{port("web")}}, and find the flag! {{port("crypto")}}
 
 ## Hints
 
@@ -35,7 +35,7 @@ init: true
 
 ## Learning Objective
 
-Examining source code to identify functionality
+Feedback protocols.
 
 ## Tags
 
